@@ -23,13 +23,13 @@ public class Application {
 	private static Logger log = Logger.getLogger(Application.class);
 
 	public static void main(String[] args) throws Exception {
-		// Initialize H2 database with demo data
-		log.info("Initialize demo .....");
+
+		log.info("*****INITIALIZATION STARTED******");
 		UserDAO.init();
 		DebtsDAO.init();
-		log.info("Initialisation Complete....");
-		// Host service on jetty
-		startService();
+		log.info("*****INITIALIZATION COMPLETED******");		
+		startService(); //starting jetty service
+		log.info("*****SERVICE STARTED*****");
 	}
 
 	private static void startService() throws Exception {

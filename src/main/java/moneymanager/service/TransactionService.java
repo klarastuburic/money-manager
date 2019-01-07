@@ -35,6 +35,7 @@ public class TransactionService {
 	@PUT
 	@Path("/new")
     public Response newTransaction(UserTransaction transaction) throws CustomException {
+		log.info("*****NEW TRANSACTION*****");
 		transaction.manageTransactions();
 		return Response.status(Response.Status.OK).build();
     }

@@ -5,16 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import moneymanager.exception.CustomException;
 import moneymanager.model.Debts;
 import moneymanager.model.User;
 
 public class DebtsDAO {
+	private static Logger log = Logger.getLogger(DebtsDAO.class);
 	private static Map<Integer, HashMap<Integer, Double>> debts;
 
 	static {
 		init();
-
 	}
 
 	public static void init() {

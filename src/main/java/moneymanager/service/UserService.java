@@ -31,17 +31,10 @@ public class UserService {
     	return UserDAO.getUserById(userId);
     }
     
-    /**
-     * Create User
-     * @param user
-     * @return
-     * @throws CustomException
-     */
+
     @PUT
     @Path("/add")
     public User addUser(User user) throws CustomException {
-    	//int userId =  Integer.getInteger(userID);
-    	//User user = new User(userId, userName, email);
         return UserDAO.addUser(user);
     }
     
