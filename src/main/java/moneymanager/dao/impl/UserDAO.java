@@ -1,7 +1,7 @@
 package moneymanager.dao.impl;
 
-
 import moneymanager.exception.CustomException;
+import moneymanager.model.Debts;
 import moneymanager.model.User;
 
 import org.apache.commons.dbutils.DbUtils;
@@ -18,19 +18,21 @@ public class UserDAO {
 
 	private static Logger log = Logger.getLogger(UserDAO.class);
 	private static final Map<Integer, User> users = new HashMap<Integer, User>();
+	
 
 	static {
 		init();
 	}
-	
+
 	public static void init() {
 		User user1 = new User(1, "Marko", "marko@markic.gmail");
 		User user2 = new User(2, "Ivana", "ivana@ivanic@gmail.com");
 		User user3 = new User(3, "Maja", "maja@majic@hmail.com");
-		
+
 		users.put(user1.getUserId(), user1);
 		users.put(user2.getUserId(), user2);
 		users.put(user3.getUserId(), user3);
+
 	}
 
 	public static List<User> getAllUsers() {
@@ -40,20 +42,17 @@ public class UserDAO {
 		return list;
 	}
 
-	public static User getUserById(int userId) {
-		try {
-			if (!users.containsKey(userId)) {
-				throw new CustomException("There is no user with that userId");
-			} else {
-				return users.get(userId);
-			}
-		} catch (CustomException e) {
-			return null;
+	public static User getUserById(int userId) throws CustomException {
+		if (!users.containsKey(userId)) {
+			throw new CustomException("There is no user with that userId");
+		} else {
+			return users.get(userId);
 		}
+
 	}
 
 	public static User addUser(User user) throws CustomException {
-		if(users.containsKey(user.getUserId())) {
+		if (users.containsKey(user.getUserId())) {
 			throw new CustomException("UserId already exists");
 		}
 		users.put(user.getUserId(), user);
@@ -71,7 +70,21 @@ public class UserDAO {
 			return user;
 		}
 	}
-	
+
+	public static User updateUser(int userId, String name, String email, Map<Integer,Double> debts) throws CustomException {
+		if (!users.containsKey(userId)) {
+			throw new CustomException("There is no user with that ID");
+		} else {
+			User user = new User(userId, name, email);
+			Map<Integer,Double> map = new HashMap<Integer,Double>();
+			map.putAll(debts);
+			user.setDebts(map);
+			System.out.println(map);
+			users.put(userId, user);
+			return user;
+		}
+	}
+
 	public static User updateUser(int userId, String name, String email) throws CustomException {
 		if (!users.containsKey(userId)) {
 			throw new CustomException("There is no user with that ID");

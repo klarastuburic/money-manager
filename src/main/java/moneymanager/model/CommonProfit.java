@@ -7,7 +7,7 @@ import moneymanager.exception.CustomException;
 public class CommonProfit {
 	
 	@JsonProperty(required = true)
-	private int fromUserId; //reciever of the profit
+	private int debtorId; //reciever of the profit
 
 	@JsonProperty(required = true)
 	private String others;
@@ -18,8 +18,8 @@ public class CommonProfit {
 	public CommonProfit() {		
 	}
 	
-	public CommonProfit(int fromUserId, String others, double amount) {
-		this.fromUserId = fromUserId;
+	public CommonProfit(int debtorId, String others, double amount) {
+		this.debtorId = debtorId;
 		this.others = others;
 		this.amount = amount;
 	}
@@ -30,10 +30,9 @@ public class CommonProfit {
 		double perEach = amount / (double) (n+1);
 		
 		for(int i = 0; i < n; i++) {
-			int toUserId = Integer.parseInt(othersArray[i]);
-			UserTransaction transaction = new UserTransaction(fromUserId,toUserId,perEach);
-			transaction.reduceBalance(fromUserId);
-			transaction.expendBalance(toUserId);
+			int otherId = Integer.parseInt(othersArray[i]);
+			UserTransaction transaction = new UserTransaction(otherId,debtorId,perEach);
+			transaction.manageTransactions();
 		}
 	}
 }

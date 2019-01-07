@@ -2,10 +2,13 @@ package moneymanager.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import moneymanager.dao.impl.DebtsDAO;
 import moneymanager.dao.impl.UserDAO;
 import moneymanager.exception.CustomException;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserTransaction {
 
@@ -18,6 +21,10 @@ public class UserTransaction {
 	@JsonProperty(required = true)
 	private double amount;
 
+	private static Map<Integer,User> list = new HashMap<Integer,User>();
+	private static Map<Integer,HashMap<Integer, Double>> currentState = new HashMap<Integer,HashMap<Integer,Double>>();
+	
+
 
 	public UserTransaction() {
 	}
@@ -25,18 +32,24 @@ public class UserTransaction {
 	public UserTransaction(int fromUserId, int toUserId, double amount) throws CustomException {
 		this.amount = amount;
 		this.fromUserId = fromUserId;
-		this.toUserId = toUserId;
-		
+		this.toUserId = toUserId;	    
 	}
+
 	
-	public void reduceBalance(int id) throws CustomException {
-		User user = UserDAO.getUserById(id);
-		user.expense(amount);
+	public void manageTransactions() throws CustomException {
+		expendBalance(toUserId);
+		reduceBalance(fromUserId);
+		DebtsDAO.manageNewTransaction(toUserId,fromUserId, amount);
 	}
-	
-	public void expendBalance(int id) throws CustomException {
+
+	public void reduceBalance(int id) throws CustomException { //smanjuje se dug - mora mu netko vratiti
 		User user = UserDAO.getUserById(id);
 		user.profit(amount);
+	}
+	
+	public void expendBalance(int id) throws CustomException { //povecava se dug - mora nekome vratiti
+		User user = UserDAO.getUserById(id);
+		user.expense(amount);
 	}
 	
 

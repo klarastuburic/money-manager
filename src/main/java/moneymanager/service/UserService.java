@@ -27,7 +27,7 @@ public class UserService {
     
     @GET
     @Path("/{userId}")
-    public User getUser(@PathParam("userId")int userId) {
+    public User getUser(@PathParam("userId")int userId) throws CustomException {
     	return UserDAO.getUserById(userId);
     }
     

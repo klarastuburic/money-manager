@@ -52,8 +52,7 @@ public class CommonExpense {
 		for(int i = 0; i < n; i++) {
 			int debtorId = Integer.parseInt(debtorsArray[i]);
 			UserTransaction transaction = new UserTransaction(debtorId,payerId,perEach);
-			transaction.reduceBalance(debtorId);
-			transaction.expendBalance(payerId);
+			transaction.manageTransactions();
 		}
 	}
 }

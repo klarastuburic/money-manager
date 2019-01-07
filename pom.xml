@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.moneytransfer</groupId>
-    <artifactId>money-transfer</artifactId>
+    <groupId>money-manager</groupId>
+    <artifactId>money-manager</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -114,7 +114,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.moneytransfer.Application</mainClass>
+                            <mainClass>moneymanager.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -133,7 +133,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
                 <configuration>
-                    <mainClass>com.moneytransfer.Application</mainClass>
+                    <mainClass>moneymanager.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>

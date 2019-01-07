@@ -1,5 +1,6 @@
 package moneymanager;
 
+import moneymanager.dao.impl.DebtsDAO;
 import moneymanager.dao.impl.UserDAO;
 import moneymanager.model.UserTransaction;
 import moneymanager.service.CommonExpenseService;
@@ -25,6 +26,7 @@ public class Application {
 		// Initialize H2 database with demo data
 		log.info("Initialize demo .....");
 		UserDAO.init();
+		DebtsDAO.init();
 		log.info("Initialisation Complete....");
 		// Host service on jetty
 		startService();

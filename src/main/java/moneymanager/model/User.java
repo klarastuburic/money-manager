@@ -1,6 +1,11 @@
 package moneymanager.model;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.h2.engine.SysProperties;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,6 +27,9 @@ public class User {
 
     @JsonProperty(required = true)
     private double amount;
+    
+    @JsonProperty
+    private Map<Integer,Double> debts;
 
     public User() {}
 
@@ -30,14 +38,23 @@ public class User {
         this.userName = userName;
         this.emailAddress = emailAddress;
         this.amount = 0;
+        this.debts = new HashMap<>();
     }
-
 
     public int getUserId() {
         return userId;
     }
 
-    public String getUserName() {
+    public void setDebts(Map<Integer, Double> debts) {
+		this.debts = debts;
+	}
+    
+    
+	public Map<Integer, Double> getDebts() {
+		return debts;
+	}
+
+	public String getUserName() {
         return userName;
     }
 
@@ -62,6 +79,7 @@ public class User {
     	this.amount += amount;
     	UserDAO.updateUser(userId, userName, emailAddress, this.amount);
     }
+    
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +94,9 @@ public class User {
 
     }
 
-    @Override
+    
+
+	@Override
     public int hashCode() {
         int result = (int) (userId ^ (userId >>> 32));
         result = 31 * result + userName.hashCode();
@@ -92,4 +112,5 @@ public class User {
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
     }
+
 }
