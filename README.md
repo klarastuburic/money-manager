@@ -9,8 +9,9 @@ A Java RESTful API for managing money between group of people
 mvn exec:java
 ```
 -after building the user is asked to choose the mode in command line, possible modes:
-    W - web service
-    C - console client
+    - W = web service
+    - C = console client
+    
 -web service: 
     -starts a server on localhost port 8080
     -it's possible to test methods in browser
