@@ -42,7 +42,6 @@ public abstract class ServiceTest {
                 .setConnectionManager(connManager)
                 .setConnectionManagerShared(true)
                 .build();
-        System.out.println(client);
     }
 
     @AfterClass

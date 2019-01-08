@@ -21,7 +21,7 @@ public class CommonExpenseService {
 	private static Logger log = Logger.getLogger(TransactionService.class);
 		
 	@PUT
-	@Path("/new")
+	@Path("")
 	public Response newTransaction(CommonExpense expense) throws CustomException {
 		expense.divideCost();
 		return Response.status(Response.Status.OK).build();

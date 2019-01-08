@@ -18,7 +18,7 @@ public class CommonProfitService {
 	private static Logger log = Logger.getLogger(TransactionService.class);
 	
 	@PUT
-	@Path("/new")
+	@Path("")
 	public Response newProfit(CommonProfit profit) throws CustomException {
 		profit.divideProfit();
 		return Response.status(Response.Status.OK).build();

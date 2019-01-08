@@ -30,7 +30,6 @@ public class UserServiceTest extends ServiceTest{
     public void testGetUser() throws IOException, URISyntaxException {
         URI uri = builder.setPath("/user/2").build();
         HttpGet request = new HttpGet(uri);
-       System.out.println(client);
         HttpResponse response = client.execute(request);
         int statusCode = response.getStatusLine().getStatusCode();
         assertTrue(statusCode == 200);
@@ -66,7 +65,6 @@ public class UserServiceTest extends ServiceTest{
         HttpResponse response = client.execute(request);
         int statusCode = response.getStatusLine().getStatusCode();
         assertTrue(statusCode == 200);
-        System.out.println("Iza kreiranja");
         String jsonString = EntityUtils.toString(response.getEntity());
         User user2 = mapper.readValue(jsonString, User.class);
         assertTrue(user2.getUserName().equals("Matea"));

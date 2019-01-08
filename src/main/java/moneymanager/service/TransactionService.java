@@ -26,14 +26,14 @@ import moneymanager.model.UserTransaction;
 
 
 
-@Path("/transaction")
+@Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 public class TransactionService {
 	
 	private static Logger log = Logger.getLogger(TransactionService.class);
 	
 	@PUT
-	@Path("/new")
+	@Path("/transaction")
     public Response newTransaction(UserTransaction transaction) throws CustomException {
 		log.info("*****NEW TRANSACTION*****");
 		transaction.manageTransactions();
@@ -41,7 +41,7 @@ public class TransactionService {
     }
 	
 	@GET
-	@Path("/currentstate")
+	@Path("/debts")
 	public Map<Integer,HashMap<Integer, Double>> getCurrentState ()   {
 		return DebtsDAO.getAllDebts();
 		
