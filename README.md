@@ -6,6 +6,9 @@ A Java RESTful API for managing money between group of people
 
 -for building and executing:
 ```sh
+mvn clean install
+```
+```sh
 mvn exec:java
 ```
 -after building the user is asked to choose the mode in command line, possible modes:  
