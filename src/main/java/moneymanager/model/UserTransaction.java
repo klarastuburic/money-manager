@@ -15,9 +15,15 @@ import org.apache.log4j.Logger;
 
 public class UserTransaction {
 
+	/**
+	 * the user that borrowed money to another user
+	 */
 	@JsonProperty(required = true)
 	private int fromUserId;
 
+	/**
+	 * the user who received money
+	 */
 	@JsonProperty(required = true)
 	private int toUserId;
 	

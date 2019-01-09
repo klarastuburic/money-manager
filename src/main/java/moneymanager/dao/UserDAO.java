@@ -13,6 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Representing data access object for users
+ * @author klara
+ *
+ */
 public class UserDAO {
 
 	private static Logger log = Logger.getLogger(UserDAO.class);

@@ -15,6 +15,7 @@ import moneymanager.model.CommonProfit;
 @Path("/profit")
 @Produces(MediaType.APPLICATION_JSON)
 public class CommonProfitService {
+	
 	private static Logger log = Logger.getLogger(TransactionService.class);
 	
 	@PUT

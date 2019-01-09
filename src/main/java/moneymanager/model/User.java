@@ -48,8 +48,7 @@ public class User {
     public void setDebts(Map<Integer, Double> debts) {
 		this.debts = debts;
 	}
-    
-    
+        
 	public Map<Integer, Double> getDebts() {
 		return debts;
 	}
@@ -69,17 +68,16 @@ public class User {
     public void setAmount(double amount) {
     	this.amount = amount;
     }
+    
     public void expense(double amount) throws CustomException {
     	this.amount -= amount;
-    	UserDAO.updateUser(userId, userName, emailAddress, this.amount);
-    	
+    	UserDAO.updateUser(userId, userName, emailAddress, this.amount);    	
     }
     
     public void profit(double amount) throws CustomException {
     	this.amount += amount;
     	UserDAO.updateUser(userId, userName, emailAddress, this.amount);
-    }
-    
+    }    
 
     @Override
     public boolean equals(Object o) {
