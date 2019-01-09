@@ -16,17 +16,17 @@ mvn exec:java
 -it's possible to test methods in browser  
 -to test all CRUD methods it's possible to use REST Client in browser (i.e. YARC in Chrome)  
     
-    | HTTP METHOD | PATH | USAGE |
-    | -----------| ------ | ------ |
-    | GET | /user/{userId} | get user by user id | 
-    | GET | /user/all | get all users | 
-    | PUT | /user/add | creates new user | 
-    | PUT | /user/{userId} | updates user | 
-    | DELETE | /user/{userId} | deletes user |
-    | PUT | /transaction | creates transaction |
-    | PUT | /profit | creates profit |
-    | PUT | /expense | creates expense |
-    | GET | /debts | get all current debts| 
+    | METHOD | PATH           | DESCRIPTION          |
+    | -------| ---------------| ---------------------|
+    | GET    | /user/{userId} | get user by user id  | 
+    | GET    | /user/all      | get all users        | 
+    | PUT    | /user/add      | creates new user     | 
+    | PUT    | /user/{userId} | updates user         | 
+    | DELETE | /user/{userId} | deletes user         |
+    | PUT    | /transaction   | creates transaction  |
+    | PUT    | /profit        | creates profit       |
+    | PUT    | /expense       | creates expense      |
+    | GET    | /debts         | get all current debts| 
     
 -console client:
     -it's possible to enter the wanted action and necessary arguments:
