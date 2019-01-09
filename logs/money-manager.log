@@ -1,5 +1,3 @@
-2019-01-07 22:00:47 INFO  Application:27 - Initialize demo .....
-2019-01-07 22:00:47 INFO  Application:30 - Initialisation Complete....
 2019-01-07 23:24:56 INFO  Application:27 - *****INITIALIZATION STARTED******
 2019-01-07 23:24:56 INFO  Application:30 - *****INITIALIZATION COMPLETED******
 2019-01-08 00:00:40 INFO  Application:32 - *****INITIALIZATION STARTED******
@@ -75,3 +73,8 @@
 2019-01-08 17:15:59 INFO  Application:34 - *****INITIALIZATION STARTED******
 2019-01-08 17:15:59 INFO  Application:37 - *****INITIALIZATION COMPLETED******
 2019-01-08 17:16:02 INFO  Application:102 - Web service mode started
+2019-01-09 10:18:12 INFO  Application:34 - *****INITIALIZATION STARTED******
+2019-01-09 10:18:12 INFO  Application:37 - *****INITIALIZATION COMPLETED******
+2019-01-09 10:18:19 INFO  Application:44 - Console mode started
+2019-01-09 10:18:31 DEBUG UserTransaction:57 - After transaction:User{userId=2, userName='Ivana, emailAddress=ivana@ivanic@gmail.com, amount=-30.0
+2019-01-09 10:18:31 DEBUG UserTransaction:51 - After transaction:User{userId=1, userName='Marko, emailAddress=marko@markic.gmail, amount=30.0

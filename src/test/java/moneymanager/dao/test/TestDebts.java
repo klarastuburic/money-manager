@@ -11,8 +11,8 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import moneymanager.dao.impl.DebtsDAO;
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.DebtsDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.User;
 import moneymanager.model.UserTransaction;

@@ -17,10 +17,9 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import moneymanager.dao.impl.DebtsDAO;
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.DebtsDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
-import moneymanager.model.Debts;
 import moneymanager.model.User;
 import moneymanager.model.UserTransaction;
 
@@ -35,7 +34,7 @@ public class TransactionService {
 	@PUT
 	@Path("/transaction")
     public Response newTransaction(UserTransaction transaction) throws CustomException {
-		log.info("*****NEW TRANSACTION*****");
+		log.info("***NEW TRANSACTION***");
 		transaction.manageTransactions();
 		return Response.status(Response.Status.OK).build();
     }

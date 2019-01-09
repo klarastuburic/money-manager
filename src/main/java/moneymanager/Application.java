@@ -1,7 +1,7 @@
 package moneymanager;
 
-import moneymanager.dao.impl.DebtsDAO;
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.DebtsDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.CommonExpense;
 import moneymanager.model.CommonProfit;

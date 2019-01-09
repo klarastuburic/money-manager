@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.User;
 

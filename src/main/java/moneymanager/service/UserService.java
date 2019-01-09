@@ -1,6 +1,6 @@
 package moneymanager.service;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.User;
 
@@ -29,34 +29,27 @@ public class UserService {
     @Path("/{userId}")
     public User getUser(@PathParam("userId")int userId) throws CustomException {
     	return UserDAO.getUserById(userId);
-    }
-    
+    } 
 
     @PUT
     @Path("/add")
     public User addUser(User user) throws CustomException {
+    	log.debug("Adding user: " + user.toString());
         return UserDAO.addUser(user);
     }
     
     @PUT
     @Path("/{userId}")
     public void updateUser(@PathParam("userId") int userId, User user) throws CustomException {
+    	log.info("Updated user: " + user.toString());
         UserDAO.updateUser(userId, user.getUserName(), user.getEmailAddress());
     }
     
-    /**
-     * Delete by User Id
-     * @param userId
-     * @return
-     * @throws CustomException
-     */
     @DELETE
     @Path("/{userId}")
     public Response deleteUser(@PathParam("userId") int userId) throws CustomException {
+    	log.info("Deleting user: " + UserDAO.getUserById(userId).toString());
         UserDAO.deleteUser(userId);
-    	return Response.status(Response.Status.OK).build();
-       
+    	return Response.status(Response.Status.OK).build();       
     }
-
-
 }

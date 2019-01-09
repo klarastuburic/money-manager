@@ -14,8 +14,8 @@ import org.junit.BeforeClass;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import moneymanager.dao.impl.DebtsDAO;
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.DebtsDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.service.CommonExpenseService;
 import moneymanager.service.CommonProfitService;
 import moneymanager.service.ServiceExceptionMapper;

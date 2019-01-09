@@ -2,13 +2,16 @@ package moneymanager.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import moneymanager.dao.impl.DebtsDAO;
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.DebtsDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
+import moneymanager.service.UserService;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 public class UserTransaction {
 
@@ -20,11 +23,12 @@ public class UserTransaction {
 	
 	@JsonProperty(required = true)
 	private double amount;
+	
+	private static Logger log = Logger.getLogger(UserTransaction.class);
 
 	private static Map<Integer,User> list = new HashMap<Integer,User>();
 	private static Map<Integer,HashMap<Integer, Double>> currentState = new HashMap<Integer,HashMap<Integer,Double>>();
 	
-
 
 	public UserTransaction() {
 	}
@@ -34,25 +38,25 @@ public class UserTransaction {
 		this.fromUserId = fromUserId;
 		this.toUserId = toUserId;	    
 	}
-
 	
 	public void manageTransactions() throws CustomException {
-		expendBalance(toUserId);
-		reduceBalance(fromUserId);
-		DebtsDAO.manageNewTransaction(toUserId,fromUserId, amount);
+		expendDebt(toUserId);
+		reduceDebt(fromUserId);
+		DebtsDAO.manageNewDebt(toUserId,fromUserId, amount);
 	}
 
-	public void reduceBalance(int id) throws CustomException { //smanjuje se dug - mora mu netko vratiti
+	public void reduceDebt(int id) throws CustomException { 
 		User user = UserDAO.getUserById(id);
 		user.profit(amount);
+		log.debug("After transaction:" + user.toString());
 	}
 	
-	public void expendBalance(int id) throws CustomException { //povecava se dug - mora nekome vratiti
+	public void expendDebt(int id) throws CustomException { 
 		User user = UserDAO.getUserById(id);
 		user.expense(amount);
+		log.debug("After transaction:" + user.toString());
 	}
 	
-
 	public double getAmount() {
 		return amount;
 	}
@@ -64,41 +68,5 @@ public class UserTransaction {
 	public int getToUserId() {
 		return toUserId;
 	}
-
-	/*
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-
-		UserTransaction other = (UserTransaction) o;
-		
-		if (amount != other.amount) {
-			return false;
-		}
-		if (fromAccountId != other.fromAccountId) {
-			return false;
-		}
-		if(toAccountId != other.toAccountId) {
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public int hashCode() {
-		int result = 31 * result + amount.hashCode();
-		result = 31 * result + fromAccountId.hashCode();
-		result = 31 * result + toAccountId.hashCode();
-		return result;
-	}
-
-	@Override
-	public String toString() {
-		return "UserTransaction{" + "currencyCode='" + currencyCode + '\'' + ", amount=" + amount + ", fromAccountId="
-				+ fromAccountId + ", toAccountId=" + toAccountId + '}';
-	} */
 
 }

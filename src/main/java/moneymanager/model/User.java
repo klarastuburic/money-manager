@@ -9,7 +9,7 @@ import org.h2.engine.SysProperties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 
 public class User {
@@ -94,8 +94,6 @@ public class User {
 
     }
 
-    
-
 	@Override
     public int hashCode() {
         int result = (int) (userId ^ (userId >>> 32));
@@ -106,11 +104,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
+        return "User: " +
+                "userId= " + userId +
+                ", userName= " + userName  +
+                ", emailAddress= " + emailAddress  +
+                ", amount= " + amount;           
     }
 
 }

@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.User;
 import moneymanager.model.UserTransaction;

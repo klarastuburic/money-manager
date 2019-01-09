@@ -11,7 +11,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.junit.Test;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.CommonProfit;
 import moneymanager.model.User;

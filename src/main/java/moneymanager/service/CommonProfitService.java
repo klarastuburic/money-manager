@@ -20,6 +20,7 @@ public class CommonProfitService {
 	@PUT
 	@Path("")
 	public Response newProfit(CommonProfit profit) throws CustomException {
+		log.info("***NEW PROFIT***");
 		profit.divideProfit();
 		return Response.status(Response.Status.OK).build();
 	}

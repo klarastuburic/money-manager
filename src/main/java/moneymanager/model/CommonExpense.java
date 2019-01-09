@@ -15,8 +15,7 @@ public class CommonExpense {
 	@JsonProperty(required = true)
 	private double amount;
 	
-	public CommonExpense() {
-		
+	public CommonExpense() {		
 	}
 	
 	public CommonExpense(int payerId, String debtors, double amount) {
@@ -28,18 +27,23 @@ public class CommonExpense {
 	public int getPayerId() {
 		return payerId;
 	}
+	
 	public void setPayerId(int payerId) {
 		this.payerId = payerId;
 	}
+	
 	public String getDebtors() {
 		return debtors;
 	}
+	
 	public void setDebtors(String debtors) {
 		this.debtors = debtors;
 	}
+	
 	public double getAmount() {
 		return amount;
 	}
+	
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}

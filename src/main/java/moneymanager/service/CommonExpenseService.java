@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import moneymanager.dao.impl.UserDAO;
+import moneymanager.dao.UserDAO;
 import moneymanager.exception.CustomException;
 import moneymanager.model.CommonExpense;
 import moneymanager.model.User;
@@ -23,6 +23,7 @@ public class CommonExpenseService {
 	@PUT
 	@Path("")
 	public Response newTransaction(CommonExpense expense) throws CustomException {
+	log.info("***NEW EXPENSE***");
 		expense.divideCost();
 		return Response.status(Response.Status.OK).build();
 	}
