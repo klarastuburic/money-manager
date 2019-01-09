@@ -1,75 +1,78 @@
-# Money transfer Rest API
+# Money manager
 
-A Java RESTful API for money transfers between users accounts
-
-### Technologies
-- JAX-RS API
-- H2 in memory database
-- Log4j
-- Jetty Container (for Test and Demo app)
-- Apache HTTP Client
-
+A Java RESTful API for managing money between group of people
 
 ### How to run
+
+-for building and executing:
 ```sh
 mvn exec:java
 ```
+-after building the user is asked to choose the mode in command line, possible modes:  
+    - W = web service  
+    - C = console client  
+-web service:  
+-starts a server on localhost port 8080  
+-it's possible to test methods in browser  
+-to test all CRUD methods it's possible to use REST Client in browser (i.e. YARC in Chrome)  
+    
+    | HTTP METHOD | PATH | USAGE |
+    | -----------| ------ | ------ |
+    | GET | /user/{userId} | get user by user id | 
+    | GET | /user/all | get all users | 
+    | PUT | /user/add | creates new user | 
+    | PUT | /user/{userId} | updates user | 
+    | DELETE | /user/{userId} | deletes user |
+    | PUT | /transaction | creates transaction |
+    | PUT | /profit | creates profit |
+    | PUT | /expense | creates expense |
+    | GET | /debts | get all current debts| 
+    
+-console client:
+    -it's possible to enter the wanted action and necessary arguments:
+        T - transaction between to users
+        E - expanse between more than one user
+        P - profit between more than one user
+        
+### How to test
+-enter the command inside the working directory
+```sh
+mvn test
+```
 
-Application starts a jetty server on localhost port 8080 An H2 in memory database initialized with some sample user and account data To view
-
-- http://localhost:8080/user/test1
-- http://localhost:8080/user/test2
-- http://localhost:8080/account/1
-- http://localhost:8080/account/2
-
-### Available Services
-
-| HTTP METHOD | PATH | USAGE |
-| -----------| ------ | ------ |
-| GET | /user/{userName} | get user by user name | 
-| GET | /user/all | get all users | 
-| PUT | /user/create | create a new user | 
-| POST | /user/{userId} | update user | 
-| DELETE | /user/{userId} | remove user | 
-| GET | /account/{accountId} | get account by accountId | 
-| GET | /account/all | get all accounts | 
-| GET | /account/{accountId}/balance | get account balance by accountId | 
-| PUT | /account/create | create a new account
-| DELETE | /account/{accountId} | remove account by accountId | 
-| PUT | /account/{accountId}/withdraw/{amount} | withdraw money from account | 
-| PUT | /account/{accountId}/deposit/{amount} | deposit money to account | 
-| POST | /transaction | perform transaction between 2 user accounts | 
-
-### Http Status
-- 200 OK: The request has succeeded
-- 400 Bad Request: The request could not be understood by the server 
-- 404 Not Found: The requested resource cannot be found
-- 500 Internal Server Error: The server encountered an unexpected condition 
-
-### Sample JSON for User and Account
+### JSON for User, Transaction, Expense and Profit
 ##### User : 
 ```sh
 {  
-  "userName":"test1",
-  "emailAddress":"test1@gmail.com"
+  "userId":"1"
+  "userName":"example",
+  "emailAddress":"example@gmail.com"
 } 
 ```
-##### User Account: : 
+##### Transaction: : 
 
 ```sh
 {  
-   "userName":"test1",
-   "balance":10.0000,
-   "currencyCode":"GBP"
+   "fromUserId":"1",
+   "toUserId":"2",
+   "amount":"100"
 } 
 ```
 
-#### User Transaction:
+#### Expense:
 ```sh
 {  
-   "currencyCode":"EUR",
-   "amount":100000.0000,
-   "fromAccountId":1,
-   "toAccountId":2
+   "payerId":"1",
+   "debtors":"2 3",
+   "amount":"400"
+}
+```
+
+#### Profit:
+```sh
+{  
+   "debtorId":"1",
+   "others":"2 3",
+   "amount":"400"
 }
 ```
