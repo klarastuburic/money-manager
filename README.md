@@ -28,11 +28,11 @@ mvn exec:java
     | PUT    | /expense       | creates expense      |
     | GET    | /debts         | get all current debts| 
     
--console client:
-    -it's possible to enter the wanted action and necessary arguments:
-        T - transaction between to users
-        E - expanse between more than one user
-        P - profit between more than one user
+-console client:  
+    -it's possible to enter the wanted action and necessary arguments:  
+        T - transaction between to users  
+        E - expanse between more than one user  
+        P - profit between more than one user  
         
 ### How to test
 -enter the command inside the working directory
