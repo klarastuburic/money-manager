@@ -9,15 +9,15 @@ A Java RESTful API for managing money between group of people
 mvn exec:java
 ```
 -after building the user is asked to choose the mode in command line, possible modes:  
-    - W = web service  
-    - C = console client  
+ &emsp;&emsp;W = web service  
+ &emsp;&emsp;C = console client  
 -web service:  
--starts a server on localhost port 8080  
--it's possible to test methods in browser  
--to test all CRUD methods it's possible to use REST Client in browser (i.e. YARC in Chrome)  
+&emsp;&emsp;-starts a server on localhost port 8080  
+&emsp;&emsp;-it's possible to test methods in browser  
+&emsp;&emsp;-to test all CRUD methods it's possible to use REST Client in browser (i.e. YARC in Chrome)  
     
     | METHOD | PATH           | DESCRIPTION          |
-    | -------| ---------------| ---------------------|
+    | ------ | -------------- | -------------------- |
     | GET    | /user/{userId} | get user by user id  | 
     | GET    | /user/all      | get all users        | 
     | PUT    | /user/add      | creates new user     | 
@@ -29,10 +29,10 @@ mvn exec:java
     | GET    | /debts         | get all current debts| 
     
 -console client:  
-    -it's possible to enter the wanted action and necessary arguments:  
-        T - transaction between to users  
-        E - expanse between more than one user  
-        P - profit between more than one user  
+    &emsp;&emsp;-it's possible to enter the wanted action and necessary arguments:  
+     &emsp;&emsp;&emsp;&emsp; T - transaction between to users  
+     &emsp;&emsp;&emsp;&emsp; E - expanse between more than one user  
+     &emsp;&emsp;&emsp;&emsp; P - profit between more than one user  
         
 ### How to test
 -enter the command inside the working directory
