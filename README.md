@@ -11,7 +11,12 @@ mvn clean install
 ```sh
 mvn exec:java
 ```
--after building the user is asked to choose the mode in command line, possible modes:  
+-3 users are created at the beginnig:  
+&emsp;&emsp; userId = 1, userName = Marko, email = marko@gmail.com  
+&emsp;&emsp; userId = 2, userName = Ivana, email = ivanaivanic@gmail.com  
+&emsp;&emsp; userId = 3, userName = Maja, email = maja-majic@gmail.com
+
+-after initialization user is asked to choose working mode in command line, possible modes:  
  &emsp;&emsp;W = web service  
  &emsp;&emsp;C = console client  
 -web service:  
@@ -19,7 +24,7 @@ mvn exec:java
 &emsp;&emsp;-it's possible to test methods in browser  
 &emsp;&emsp;-to test all CRUD methods it's possible to use REST Client in browser (i.e. YARC in Chrome)  
     
-    | METHOD | PATH           | DESCRIPTION          |
+    | METHOD |      PATH      |     DESCRIPTION      |
     | ------ | -------------- | -------------------- |
     | GET    | /user/{userId} | get user by user id  | 
     | GET    | /user/all      | get all users        | 
@@ -36,7 +41,7 @@ mvn exec:java
      &emsp;&emsp;&emsp;&emsp; T - transaction between to users  
      &emsp;&emsp;&emsp;&emsp; E - expanse between more than one user  
      &emsp;&emsp;&emsp;&emsp; P - profit between more than one user  
-        
+          
 ### How to test
 -enter the command inside the working directory
 ```sh
