@@ -29,9 +29,9 @@ public class UserDAO {
 	}
 
 	public static void init() {
-		User user1 = new User(1, "Marko", "marko@markic.gmail");
-		User user2 = new User(2, "Ivana", "ivana@ivanic@gmail.com");
-		User user3 = new User(3, "Maja", "maja@majic@hmail.com");
+		User user1 = new User(1, "Marko", "marko@gmail.com");
+		User user2 = new User(2, "Ivana", "ivanaivanic@gmail.com");
+		User user3 = new User(3, "Maja", "maja-majic@gmail.com");
 
 		users.put(user1.getUserId(), user1);
 		users.put(user2.getUserId(), user2);
@@ -52,7 +52,6 @@ public class UserDAO {
 		} else {
 			return users.get(userId);
 		}
-
 	}
 
 	public static User addUser(User user) throws CustomException {
@@ -72,20 +71,6 @@ public class UserDAO {
 		} else {
 			User user = new User(userId, name, email);
 			user.setAmount(amount);
-			users.put(userId, user);
-			return user;
-		}
-	}
-
-	public static User updateUser(int userId, String name, String email, Map<Integer,Double> debts) throws CustomException {
-		if (!users.containsKey(userId)) {
-			log.fatal("CustomException occur: There is no user with that userId");
-			throw new CustomException("There is no user with that id");
-		} else {
-			User user = new User(userId, name, email);
-			Map<Integer,Double> map = new HashMap<Integer,Double>();
-			map.putAll(debts);
-			user.setDebts(map);
 			users.put(userId, user);
 			return user;
 		}

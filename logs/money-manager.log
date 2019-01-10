@@ -78,3 +78,8 @@
 2019-01-09 10:18:19 INFO  Application:44 - Console mode started
 2019-01-09 10:18:31 DEBUG UserTransaction:57 - After transaction:User{userId=2, userName='Ivana, emailAddress=ivana@ivanic@gmail.com, amount=-30.0
 2019-01-09 10:18:31 DEBUG UserTransaction:51 - After transaction:User{userId=1, userName='Marko, emailAddress=marko@markic.gmail, amount=30.0
+2019-01-10 02:26:32 INFO  Application:34 - *****INITIALIZATION STARTED******
+2019-01-10 02:26:32 INFO  Application:37 - *****INITIALIZATION COMPLETED******
+2019-01-10 02:26:43 INFO  Application:44 - Console mode started
+2019-01-10 02:26:54 DEBUG UserTransaction:63 - After transaction:User: userId= 1, userName= Marko, emailAddress= marko@markic.gmail, amount= -50.0
+2019-01-10 02:26:54 DEBUG UserTransaction:57 - After transaction:User: userId= 2, userName= Ivana, emailAddress= ivana@ivanic@gmail.com, amount= 50.0
